@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+#plink{
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker{
+  50%{
+    opacity: 0;
+  }
+}
+</style>
+</head>
+<body>
+    <p id="message"></p>
+</body>
+<script>
+var quoteArray = "DEV is a awesome community for developers!";
+var textPosition = 0; 
+var textPosition1 = quoteArray.length;
+var speed = 100;
+typewriter = () => {
+  document.querySelector("#message").innerHTML = quoteArray.substring(0, textPosition) + '<span id="plink">\u25AE</span>';
+if(textPosition!= quoteArray.length){
+  if(textPosition++ != quoteArray.length){
+    setTimeout(typewriter, speed);
+  }
+}
+else{
+  typewriter1()
+}
+
+    
+}
+function typewriter1(){
+    document.querySelector("#message").innerHTML = quoteArray.substring(0, textPosition) + '<span id="plink">\u25AE</span>';
+if(textPosition!= 0){
+if(--textPosition != quoteArray.length)
+  setTimeout(typewriter1, speed);
+}
+
+else{
+    typewriter()
+}
+}
+window.addEventListener("load", typewriter)
+
+</script>
+</html>
